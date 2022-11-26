@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployapp
+  namespace: lab3
+  labels:
+    app: employees
+    owner: rutuj
+spec:
+  selector:
+    matchLabels:
+      app: employees
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: employees
+    spec:
+      containers:
+      - name: employees
+        image: 899518646067.dkr.ecr.us-east-1.amazonaws.com/webapp-dev-app:v1.0
+        imagePullPolicy: "Always"
+        env:
+        - name: DBHOST
+          valueFrom:
+            secretKeyRef:
+              name: dbhost
+              key: dbhost
+        - name: DBPORT
+          value: "3306"
+        - name: DBUSER
+          value: root
+        - name: DBPWD
+          value: pw
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+      dnsPolicy: ClusterFirst
