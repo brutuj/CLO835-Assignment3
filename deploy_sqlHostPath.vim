@@ -31,7 +31,7 @@ spec:
         image: 899518646067.dkr.ecr.us-east-1.amazonaws.com/webapp-dev-mysql:v1.0
         volumeMounts:
           - mountPath: /data
-            name: mysql-pvc
+            name: mysql-pvc-manual
         imagePullPolicy: "Always"
         ports:
         - name: mysql
