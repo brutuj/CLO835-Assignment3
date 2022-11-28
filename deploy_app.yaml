@@ -22,10 +22,7 @@ spec:
         imagePullPolicy: "Always"
         env:
         - name: DBHOST
-          valueFrom:
-            secretKeyRef:
-              name: dbhost
-              key: dbhost
+          value: "10.100.212.65"
         - name: DBPORT
           value: "3306"
         - name: DBUSER
@@ -34,6 +31,6 @@ spec:
           value: pw
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: 80
           protocol: TCP
       dnsPolicy: ClusterFirst
