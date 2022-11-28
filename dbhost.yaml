@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dbhost
+  namespace: lab3
+  labels:
+    app: employees
+type: Opaque
+data:
+  dbhost: MTkyLjE2OC42NC4xMjk=
