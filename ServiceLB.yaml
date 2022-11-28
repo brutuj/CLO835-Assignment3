@@ -5,9 +5,10 @@ metadata:
   namespace: lab3
   labels:
     name: loadbalancer-app
+    app: employees
 spec:
   ports:
-  - port: 8080
+  - port: 80
     targetPort: 8080
     protocol: TCP
   selector:
