@@ -22,7 +22,7 @@ spec:
         imagePullPolicy: "Always"
         env:
         - name: DBHOST
-          value: "10.100.114.32"
+          value: "clusterip.lab3"
         - name: DBPORT
           value: "3306"
         - name: DBUSER
